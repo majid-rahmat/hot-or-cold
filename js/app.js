@@ -1,6 +1,6 @@
 
 $(document).ready(function(){
-	
+	'use strict';
 	/*--- Display information modal box ---*/
   	$(".what").click(function(){
     	$(".overlay").fadeIn(1000);
@@ -17,8 +17,7 @@ $(document).ready(function(){
 	var counter = 0;   
 
     $('#guessButton').click(function(){  //when you click on add,lines 8-10 will execute
-    var input = ($('#userGuess').val());  //takes the value of input field
-    validate(input);   //invokes the validate function with input variable as an argument 
+    validate($('#userGuess').val());   //invokes the validate function with input variable as an argument 
     $('#userGuess').val('');  //clears out the input box so that previous no. no longer shows
   }); 
 
@@ -43,7 +42,7 @@ $(document).ready(function(){
   function add(input) { //used to increase counter, add guesses to list and array 
     counter += 1;
     $('#count').text(counter);  
-    $('#guessList').append('<li>' + input + '</li>');  //difference??
+    $('#guessList').append('<li>' + input + '</li>');  
     previousGuesses.push(input);
   
   }
@@ -77,7 +76,7 @@ $('#userGuess').keypress(function(event){  //if user presses a key on the input 
     random = Math.floor((Math.random() * 100));  //new random no generated
     previousGuesses = [];  //new array created
     counter = 0;  //counter pushed back to zero
-    $('ul').empty(); //the list and text are emptied/cleared
+    $('#guessList').empty(); //the list and text are emptied/cleared
     $('#feedback').empty();
     $('#count').empty();  
   }
